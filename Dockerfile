@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-MAINTAINER Tomas Jacik <tomas@jacik.cz>
+MAINTAINER Nikolas Garofil
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DISPLAY=:0.0

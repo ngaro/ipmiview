@@ -2,6 +2,6 @@ version: '3'
 services:
     ipmiview:
         container_name: ipmiview
-        image: sunfoxcz/ipmiview:latest
+        image: garo/ipmiview:latest
         ports:
             - 8080:8080
