@@ -1,5 +1,5 @@
 NAME = garo/ipmiview
-IPMIVIEW_VERSION = 2.18.0_build.201007_bundleJRE_Linux_x64
+IPMIVIEW_VERSION = 2.21.0_build.221118_bundleJRE_Linux_x64
 
 .PHONY: all build
 
