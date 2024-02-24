@@ -9,20 +9,17 @@ ENV DISPLAY=:0.0
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD IPMIView_${IPMIVIEW_VERSION} /opt/IPMIView
 
-RUN apt-get update
-RUN apt-get dist-upgrade -y --no-install-recommends
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends && apt-get install -y --no-install-recommends \
 	software-properties-common \
 	xvfb \
 	x11vnc \
 	supervisor \
 	fluxbox \
 	firefox \
-	git
-RUN git clone https://github.com/novnc/noVNC.git /opt/noVNC
-RUN git clone https://github.com/novnc/websockify /opt/noVNC/utils/websockify
-
-RUN apt-get remove --purge -y git && \
+	git && \
+	git clone https://github.com/novnc/noVNC.git /opt/noVNC && \
+	git clone https://github.com/novnc/websockify /opt/noVNC/utils/websockify && \
+	apt-get remove --purge -y git && \
 	apt-get autoremove -y && \
 	apt-get clean && \
 	rm -rf /build && \
