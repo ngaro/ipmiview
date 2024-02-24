@@ -7,13 +7,14 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DISPLAY=:0.0
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD IPMIView_${IPMIVIEW_VERSION} /opt/IPMIView
 
 RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends && \
-	apt-get install -y --no-install-recommends software-properties-common xvfb x11vnc supervisor fluxbox firefox git && \
+	apt-get install -y --no-install-recommends software-properties-common xvfb x11vnc supervisor fluxbox firefox git curl && \
 	cd /opt && \
+	curl -O https://www.supermicro.com/wdl/utility/IPMIView/Linux/IPMIView_${IPMIVIEW_VERSION}.tar.gz && \
+	tar -zxvf IPMIView_${IPMIVIEW_VERSION}.tar.gz && rm IPMIView_${IPMIVIEW_VERSION}.tar.gz && \
 	git clone https://github.com/novnc/noVNC.git && git clone https://github.com/novnc/websockify /opt/noVNC/utils/websockify && \
-	apt-get remove --purge -y git && \
+	apt-get remove --purge -y git curl && \
 	apt-get autoremove -y && apt-get clean && rm -rf /build && rm -rf /tmp/* /var/tmp/* && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8080
