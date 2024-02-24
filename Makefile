@@ -7,5 +7,5 @@ all: build
 
 build:
 	tar zxvf IPMIView_$(IPMIVIEW_VERSION).tar.gz
-	docker build --build-arg IPMIVIEW_VERSION=$(IPMIVIEW_VERSION) -t $(NAME):latest --rm -f Dockerfile .
+	docker-compose build --build-arg IPMIVIEW_VERSION=$(IPMIVIEW_VERSION)
 	rm -r IPMIView_$(IPMIVIEW_VERSION)
