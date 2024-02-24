@@ -11,9 +11,13 @@ This container runs:
 
 ## Usage
 
-```bash
-make
+```
 docker run --rm --name ipmiview -p 8080:8080 garo/ipmiview:latest
 ```
+or if you copied the `docker-compose.yml` file out the repo you can also run 
 
-Then open your browser with address `http://localhost:8080/vnc.html`.
+```
+docker-compose -f /path/to/the/docker-compose.yml up
+```
+
+After starting it you can open browse to `http://localhost:8080/vnc.html`.
