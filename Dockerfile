@@ -9,7 +9,7 @@ ENV DISPLAY=:0.0
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends && \
-	apt-get install -y --no-install-recommends software-properties-common xvfb x11vnc supervisor fluxbox firefox curl novnc && \
+	apt-get install -y --no-install-recommends software-properties-common xvfb x11vnc supervisor curl novnc && \
 	cd /opt && \
 	curl -O https://www.supermicro.com/wdl/utility/IPMIView/Linux/IPMIView_${IPMIVIEW_VERSION}.tar.gz && \
 	tar -zxvf IPMIView_${IPMIVIEW_VERSION}.tar.gz && rm IPMIView_${IPMIVIEW_VERSION}.tar.gz && mv IPMIView_${IPMIVIEW_VERSION} IPMIView && \
