@@ -1,11 +1,13 @@
 FROM ubuntu:22.04
 MAINTAINER Nikolas Garofil
 
+ARG IPMIVIEW_VERSION
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DISPLAY=:0.0
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD IPMIView_2.18.0_build.201007_bundleJRE_Linux_x64 /opt/IPMIView
+ADD IPMIView_${IPMIVIEW_VERSION} /opt/IPMIView
 
 RUN apt-get update
 RUN apt-get dist-upgrade -y --no-install-recommends
