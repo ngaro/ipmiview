@@ -18,5 +18,6 @@ RUN useradd -ms /bin/bash user
 ADD supervisord.conf /home/user/supervisord.conf
 
 EXPOSE 8080
+USER user
 
 CMD ["/usr/bin/supervisord", "-c", "/home/user/supervisord.conf"]
