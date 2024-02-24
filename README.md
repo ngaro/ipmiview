@@ -13,7 +13,7 @@ This container runs:
 
 ```bash
 make
-docker run -p 8080:8080 garo/ipmiview:latest
+docker run --rm --name ipmiview -p 8080:8080 garo/ipmiview:latest
 ```
 
 Then open your browser with address `http://localhost:8080/vnc.html`.
