@@ -6,8 +6,6 @@ ARG IPMIVIEW_VERSION
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DISPLAY=:0.0
 
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends && \
 	apt-get install -y --no-install-recommends software-properties-common xvfb x11vnc supervisor curl novnc && \
 	cd /opt && \
@@ -16,6 +14,9 @@ RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends && \
 	apt-get remove --purge -y curl && \
 	apt-get autoremove -y && apt-get clean && rm -rf /build && rm -rf /tmp/* /var/tmp/* && rm -rf /var/lib/apt/lists/*
 
+RUN useradd -ms /bin/bash user
+ADD supervisord.conf /home/user/supervisord.conf
+
 EXPOSE 8080
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/home/user/supervisord.conf"]
