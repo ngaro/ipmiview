@@ -15,6 +15,7 @@ RUN apt-get update && apt-get dist-upgrade -y --no-install-recommends && \
 	apt-get autoremove -y && apt-get clean && rm -rf /build && rm -rf /tmp/* /var/tmp/* && rm -rf /var/lib/apt/lists/*
 
 ADD start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
 
 EXPOSE 8080
 
