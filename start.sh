@@ -21,4 +21,4 @@ x11vnc -display :0 -forever -shared -quiet -bg -xkb -usepw
 keep_running_in_X /opt/IPMIView/IPMIView20 &
 
 # Make it accessible with http
-cd /usr/share/novnc/utils && ./launch.sh --vnc localhost:5900
+cd /usr/share/novnc/utils && ./novnc_proxy --vnc localhost:5900
