@@ -1,5 +1,5 @@
-FROM ubuntu:22.04
-MAINTAINER Nikolas Garofil
+FROM ubuntu:24.04
+LABEL maintainer="Nikolas Garofil <nikolas@garofil.be>"
 
 ARG IPMIVIEW_VERSION
 
